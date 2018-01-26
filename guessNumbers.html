@@ -1,0 +1,75 @@
+< !DOCTYPE html>
+  <html>
+
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script>
+      // GET NAME FROM USER
+      function getName() {
+        let name = prompt('Hi! What is your name?')
+        return name
+      }
+
+      // GENERATE RANDOM GOAL NUMBER WITH USER MAX INPUT
+      function generateRandomNumber(max) {
+        let min = 1
+        let goal = Math.floor(Math.random() * (max - min + 1) + min)
+        return goal
+      }
+
+      //GET MAXIMUM NUMBER FOR GAME FROM USER
+      function getMaxFromUser() {
+        let max = parseInt(prompt('Pick a number! Larger than 0 and not a decimal please.'))
+        prompt('Okay, your guessing range is between 1 and ' + max)
+        return max
+      }
+
+      // PROMPT USER FOR GUESS CONVERT TO NUMBER
+      function getMaxFromUser() {
+        let max = parseInt(
+          prompt('Pick a number! Larger than 0 and not a decimal please.')
+        )
+        if (max === 0) {
+          alert('INVALID INPUT. PLEASE TRY AND FOLLOW INSTRUCTIONS')
+          location.reload()  
+        } else {
+          prompt('Okay, your guessing range is between 1 and ' + max);
+        }
+        return max;
+
+      }
+      // CHECK IF GUESS IS CORRECT AND RETURN BOOLEAN
+      function isGuessCorrect(goal) {
+        let guess;
+        while (guess !== goal) {
+          let guess = getGuessFromUser()
+          if (guess < goal) {
+            console.log('Too low, try again fool.')
+          } else if (guess > goal) {
+            console.log('Too high, you must be high. Try again!')
+          } else if (guess === goal) {
+            console.log('Took you long enough. Thanks for playing.')
+            break;
+          }
+        }
+      }
+
+      // START GAME FUNCTION
+      function startGame() {
+        getName()
+        let max = getMaxFromUser()
+        let goal = generateRandomNumber(max)
+        isGuessCorrect(goal)
+      }
+
+      startGame()
+
+    </script>
+  </head>
+
+  <body>
+    <!-- Don't need anything here for now -->
+  </body>
+
+  </html>
