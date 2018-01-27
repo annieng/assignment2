@@ -1,0 +1,19 @@
+body {
+  background-color: #000000;
+  color: #1ec503;
+  font-family: 'Orbitron', sans-serif;
+  font-style: medium;
+
+}
+
+#start {
+  text-align: center;
+}
+
+h1 {
+  text-align: center;
+  color: #1ec503;
+  font-family: 'Orbitron', sans-serif;
+  font-style: medium;
+  font-size: 5rem;
+}
