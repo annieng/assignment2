@@ -10,89 +10,74 @@
   <!-- jquery -->
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
     crossorigin="anonymous"></script>
-  <!-- bootstrap -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy"
-    crossorigin="anonymous">
-  <!-- my styles -->
-  <link rel="stylesheet" type: "text/css" href="./styles.css" />
 
-  <title></title>
-  <script>
-    // GET NAME FROM USER
-    function getName() {
-      let name = prompt('Hi! What is your name?')
-      return name
+<title></title>
+<script>
+  // GET NAME FROM USER
+  function getName() {
+    let name = prompt('Hi! What is your name?')
+    return name
+  }
+  // GENERATE RANDOM GOAL NUMBER WITH USER MAX INPUT
+  function generateRandomNumber(max) {
+    let min = 1
+    let goal = Math.floor(Math.random() * (max - min + 1) + min)
+    return goal
+  }
+  //GET MAXIMUM NUMBER FOR GAME FROM USER
+  function getMaxFromUser() {
+    let max = parseInt(prompt('Pick a number! Larger than 0 and not a decimal please.'))
+    prompt('Okay, your guessing range is between 1 and ' + max)
+    return max
+  }
+  // PROMPT USER FOR GUESS CONVERT TO NUMBER
+  function getMaxFromUser() {
+    let max = parseInt(
+      prompt('Pick a number! Larger than 0 and not a decimal please.')
+    )
+    if (max === 0 || max === undefined || max === null) {
+      alert('INVALID INPUT. PLEASE TRY AND FOLLOW INSTRUCTIONS')
+      location.reload()
+    } else {
+      prompt('Okay, your guessing range is between 1 and ' + max);
     }
-
-    // GENERATE RANDOM GOAL NUMBER WITH USER MAX INPUT
-    function generateRandomNumber(max) {
-      let min = 1
-      let goal = Math.floor(Math.random() * (max - min + 1) + min)
-      return goal
-    }
-
-    //GET MAXIMUM NUMBER FOR GAME FROM USER
-    function getMaxFromUser() {
-      let max = parseInt(prompt('Pick a number! Larger than 0 and not a decimal please.'))
-      prompt('Okay, your guessing range is between 1 and ' + max)
-      return max
-    }
-
-    // PROMPT USER FOR GUESS CONVERT TO NUMBER
-    function getMaxFromUser() {
-      let max = parseInt(
-        prompt('Pick a number! Larger than 0 and not a decimal please.')
-      )
-      if (max === 0 || max === undefined || max === null) {
-        alert('INVALID INPUT. PLEASE TRY AND FOLLOW INSTRUCTIONS')
-        location.reload()
-      } else {
-        prompt('Okay, your guessing range is between 1 and ' + max);
-      }
-      return max;
-
-    }
-
-    // PROMPT USER FOR GUESS CONVERT TO NUMBER
-    function getGuessFromUser() {
-      let min = 1;
-      let guess = parseInt(prompt('Guess again'));
-      return guess;
-    }
-
-    // CHECK IF GUESS IS CORRECT AND RETURN BOOLEAN
-    function isGuessCorrect(goal) {
-      let guess;
-      while (guess !== goal) {
-        let guess = getGuessFromUser()
-        if (guess < goal) {
-          alert('Too low, try again fool.')
-        } else if (guess > goal) {
-          alert('Too high, you must be high. Try again!')
-        } else if (guess === goal) {
-          alert('Took you long enough. Thanks for playing.')
-          break;
-        }
+    return max;
+  }
+  // PROMPT USER FOR GUESS CONVERT TO NUMBER
+  function getGuessFromUser() {
+    let min = 1;
+    let guess = parseInt(prompt('Guess again'));
+    return guess;
+  }
+  // CHECK IF GUESS IS CORRECT AND RETURN BOOLEAN
+  function isGuessCorrect(goal) {
+    let guess;
+    while (guess !== goal) {
+      let guess = getGuessFromUser()
+      if (guess < goal) {
+        alert('Too low, try again fool.')
+      } else if (guess > goal) {
+        alert('Too high, you must be high. Try again!')
+      } else if (guess === goal) {
+        alert('Took you long enough. Thanks for playing.')
+        break;
       }
     }
-
-    // START GAME FUNCTION
-    function startGame() {
-      getName()
-      let max = getMaxFromUser()
-      let goal = generateRandomNumber(max)
-      isGuessCorrect(goal)
-    }
-
-    $(document).ready(startGame())
-
+  }
+  // START GAME FUNCTION
+  function startGame() {
+    getName()
+    let max = getMaxFromUser()
+    let goal = generateRandomNumber(max)
+    isGuessCorrect(goal)
+  }
+  $(document).ready(startGame())
       //event handlers
-
-  </script>
+</script>
 </head>
 
 <body>
-  
+
 </body>
 
 </html>
