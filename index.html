@@ -66,11 +66,11 @@
       while (guess !== goal) {
         let guess = getGuessFromUser()
         if (guess < goal) {
-          console.log('Too low, try again fool.')
+          alert('Too low, try again fool.')
         } else if (guess > goal) {
-          console.log('Too high, you must be high. Try again!')
+          alert('Too high, you must be high. Try again!')
         } else if (guess === goal) {
-          console.log('Took you long enough. Thanks for playing.')
+          alert('Took you long enough. Thanks for playing.')
           break;
         }
       }
@@ -92,11 +92,7 @@
 </head>
 
 <body>
-  <!-- <div id="start">
-    <h1 id="start-screen"> monitor ready</h1>
-    <h1 id="start-screen"> press any key to start</h1>
-  </div> -->
-
+  
 </body>
 
 </html>
