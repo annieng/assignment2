@@ -1,4 +1,4 @@
-< !DOCTYPE html>
+<!DOCTYPE html>
   <html>
 
   <head>
@@ -10,13 +10,7 @@
     <!-- jquery -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
       crossorigin="anonymous"></script>
-    <!-- bootstrap -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy"
-      crossorigin="anonymous">
-    <!-- my styles -->
-    <link rel="stylesheet" type: "text/css" href="./styles.css" />
 
-    <title></title>
     <script>
       // GET NAME FROM USER
       function getName() {
@@ -43,7 +37,7 @@
         let max = parseInt(
           prompt('Pick a number! Larger than 0 and not a decimal please.')
         )
-        if (max === 0 || max !== Number || max === "" || max === undefined || max === null || max % 1 !== 0) {
+        if (max === 0 || max === undefined || max === null || max % max !== 1) {
           alert('INVALID INPUT. PLEASE TRY AND FOLLOW INSTRUCTIONS')
           location.reload()  
         } else {
@@ -52,17 +46,25 @@
         return max;
 
       }
+
+      // PROMPT USER FOR GUESS CONVERT TO NUMBER
+        function getGuessFromUser() {
+          let min = 1;
+          let guess = parseInt(prompt('Guess again'));
+          return guess;
+        }
+
       // CHECK IF GUESS IS CORRECT AND RETURN BOOLEAN
       function isGuessCorrect(goal) {
         let guess;
         while (guess !== goal) {
           let guess = getGuessFromUser()
           if (guess < goal) {
-            document.write('Too low, try again fool.')
+            console.log('Too low, try again fool.')
           } else if (guess > goal) {
-            document.write('Too high, you must be high. Try again!')
+            console.log('Too high, you must be high. Try again!')
           } else if (guess === goal) {
-            document.write('Took you long enough. Thanks for playing.')
+            console.log('Took you long enough. Thanks for playing.')
             break;
           }
         }
@@ -76,7 +78,7 @@
         isGuessCorrect(goal)
       }
 
-      startGame()
+      $(document).ready(startGame())
 
       //event handlers
       
@@ -84,6 +86,7 @@
   </head>
 
   <body>
+
 
   </body>
 
